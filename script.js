@@ -1,4 +1,4 @@
-const potential_words = ["CASTLE","BOX","COMPUTER","BOTTLE","HAMSTER","DUCK","JAVASCRIPT","PHONE","DESK","CHAIR","SANDWICH"]
+const potential_words = ["CASTLE","BOX","COMPUTER","BIRD","HAMSTER","DUCK","PYTHON","PHONE","DESK","CHAIR","SANDWICH"]
 const randNum = (Math.floor(Math.random() * Math.floor(potential_words.length)))
 const actual_word = potential_words[randNum]
 const startLives = 8;
@@ -54,12 +54,13 @@ function HangMan(word){
           console.log(this.guessedLetters.toString());
 
           this.completed = this.isComplete();
-          if (completed){
+          if (this.completed){
             console.log("You guessed everything! The word was " + this.correctString)
             return;
           }
-          return;
+       return;   
       }
+      
     }
     this.wrongGuesses.push(letter)
     if (this.wrongGuesses.length >= startLives){
@@ -96,7 +97,7 @@ function HangMan(word){
   }
 
   for (i = 0;i<this.guessedLetters.length;i++){
-    this.correctString += guessedLetters[i]
+    this.correctString += this.guessedLetters[i]
   }
   return true;
 }
